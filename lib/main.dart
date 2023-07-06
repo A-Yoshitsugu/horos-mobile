@@ -40,15 +40,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: Column(
+      body: Center(
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            )
-          ],
+        child: GridView.builder(
+         shrinkWrap: true, //中央寄せ
+          padding: const EdgeInsets.all(20),
+          itemCount: 12,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, //横に並べる個数
+            crossAxisSpacing: 10, //左右の余白
+            mainAxisSpacing: 30, //上下の余白
+          ), 
+          itemBuilder: (context, index) {
+            return Container(
+              color: Colors.teal,
+              child: const Center(
+                child: Text("The Zodiac Sign", style: TextStyle(fontSize: 12,),)),
+            );
+          }
         ),
       ),
     );
