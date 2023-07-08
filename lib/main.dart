@@ -42,22 +42,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
 
-        child: GridView.builder(
-         shrinkWrap: true, //中央寄せ
+        child: GridView.count(
+          shrinkWrap: true, //中央寄せ
+          crossAxisCount: 3,
           padding: const EdgeInsets.all(20),
-          itemCount: 12,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, //横に並べる個数
-            crossAxisSpacing: 10, //左右の余白
-            mainAxisSpacing: 30, //上下の余白
-          ), 
-          itemBuilder: (context, index) {
-            return Container(
-              color: Colors.teal,
-              child: const Center(
-                child: Text("The Zodiac Sign", style: TextStyle(fontSize: 12,),)),
-            );
-          }
+          children: <Widget>[
+            Card(
+              clipBehavior: Clip.antiAlias,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  AspectRatio(
+                    aspectRatio: 1/1,
+                    child: Image.asset("assets/zodiac_signs/leo.png"),
+                    ),
+                  const Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text("The Zodiac Sign", style: TextStyle(fontSize: 14),),
+                        SizedBox(height: 8,),
+                        Text("Birth", style: TextStyle(fontSize: 12),),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+          )],
         ),
       ),
     );
