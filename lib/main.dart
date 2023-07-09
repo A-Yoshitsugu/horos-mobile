@@ -31,6 +31,38 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  List<Card> _buildGridCards(int count) {
+    List<Card> cards = List.generate(
+      count,
+      (int index) {
+        return Card(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              AspectRatio(
+                aspectRatio: 1.0 / 1.0,
+                child: Image.asset('assets/zodiac_signs/leo.png'),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text("The Zodiac Sign", style: TextStyle(fontSize: 14),),
+                    SizedBox(height: 8,),
+                    Text("Birth", style: TextStyle(fontSize: 12),),
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+      return cards;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,30 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
           shrinkWrap: true, //中央寄せ
           crossAxisCount: 3,
           padding: const EdgeInsets.all(20),
-          children: <Widget>[
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  AspectRatio(
-                    aspectRatio: 1/1,
-                    child: Image.asset("assets/zodiac_signs/leo.png"),
-                    ),
-                  const Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text("The Zodiac Sign", style: TextStyle(fontSize: 14),),
-                        SizedBox(height: 8,),
-                        Text("Birth", style: TextStyle(fontSize: 12),),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-          )],
+          childAspectRatio: 1.0 / 1.0,
+          children: _buildGridCards(12),
         ),
       ),
     );
