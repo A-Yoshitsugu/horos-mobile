@@ -17,8 +17,8 @@ class Product {
   final String zodiac;
   final String birth;
 
-  String get assetName => '$zodiac.png';
-  String get assetPackage => 'shrine_images';
+  String get assetName => 'lib/assets/zodiac_signs/$zodiac.png';
+  String get assetPackage => 'zodiac_signs';
 
   @override
   String toString() => "$zodiacJP (id=$id)";

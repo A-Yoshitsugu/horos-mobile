@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+
+import 'assets/model/product.dart';
+import 'assets/model/product_repository.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -31,36 +35,55 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List<Card> _buildGridCards(int count) {
-    List<Card> cards = List.generate(
-      count,
-      (int index) {
-        return Card(
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1.0 / 1.0,
-                child: Image.asset('assets/zodiac_signs/leo.png'),
+  List<Card> _buildGridCards(BuildContext context) {
+    List<Product> products = ProductsRepository.loadProducts(Category.all);
+
+    if (products.isEmpty) {
+      return const <Card>[];
+    }
+
+    final ThemeData theme = Theme.of(context);
+
+    return products.map((product) {
+      return Card(
+        clipBehavior: Clip.antiAlias, //はみ出た画像の切り取り
+        // TODO: Adjust card heights (103)
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 2.0 / 1.0,
+              child: Image.asset(
+                product.assetName,
               ),
-              const Padding(
-                padding: EdgeInsets.all(20),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("The Zodiac Sign", style: TextStyle(fontSize: 14),),
-                    SizedBox(height: 8,),
-                    Text("Birth", style: TextStyle(fontSize: 12),),
+                    Text(
+                      product.zodiacJP,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      product.birth,
+                      style: const TextStyle(
+                        fontSize: 10,
+                      ),
+                    )
                   ],
                 ),
-              )
-            ],
-          ),
-        );
-      },
-    );
-      return cards;
+              ),
+            ),
+          ],
+        ),
+      );
+    }).toList();
   }
 
   @override
@@ -79,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisCount: 3,
           padding: const EdgeInsets.all(20),
           childAspectRatio: 1.0 / 1.0,
-          children: _buildGridCards(12),
+          children: _buildGridCards(context),
         ),
       ),
     );
