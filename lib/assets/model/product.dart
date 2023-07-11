@@ -7,11 +7,13 @@ enum Category {
 class Product {
   const Product({
     required this.id,
+    required this.zodiacJP,
     required this.zodiac,
     required this.birth,
   });
 
   final int id;
+  final String zodiacJP;
   final String zodiac;
   final String birth;
 
@@ -19,5 +21,5 @@ class Product {
   String get assetPackage => 'shrine_images';
 
   @override
-  String toString() => "$zodiac (id=$id)";
+  String toString() => "$zodiacJP (id=$id)";
 }
