@@ -47,10 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return products.map((product) {
       return Card(
         clipBehavior: Clip.antiAlias, //はみ出た画像の切り取り
+        color: const Color.fromRGBO(255, 255, 255, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100),
+        ),
         // TODO: Adjust card heights (103)
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            const Padding(padding: EdgeInsets.only(top:6),),
             AspectRatio(
               aspectRatio: 2.0 / 1.0,
               child: Image.asset(
@@ -59,21 +64,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.only(top:5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       product.zodiacJP,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       product.birth,
                       style: const TextStyle(
-                        fontSize: 10,
+                        fontSize: 8,
                       ),
                     )
                   ],
@@ -89,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:const Color.fromRGBO(71, 107, 149, 1), //背景色
       appBar: AppBar(
 
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -96,12 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-
         child: GridView.count(
           shrinkWrap: true, //中央寄せ
           crossAxisCount: 3,
-          padding: const EdgeInsets.all(20),
-          childAspectRatio: 1.0 / 1.0,
+          mainAxisSpacing: 28, //縦方向の間隔
+          crossAxisSpacing: 16, //縦方向の間隔
+          padding: const EdgeInsets.only(left:12, right:12),
           children: _buildGridCards(context),
         ),
       ),
