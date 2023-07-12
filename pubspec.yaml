@@ -92,3 +92,4 @@ flutter:
   #Image assets
   assets:
     - lib/assets/zodiac_signs/
+    - lib/assets/bg_star.png

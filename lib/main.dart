@@ -98,19 +98,33 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
 
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
-      body: Center(
-        child: GridView.count(
-          shrinkWrap: true, //中央寄せ
-          crossAxisCount: 3,
-          mainAxisSpacing: 28, //縦方向の間隔
-          crossAxisSpacing: 16, //縦方向の間隔
-          padding: const EdgeInsets.only(left:12, right:12),
-          children: _buildGridCards(context),
-        ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration (
+              //背景画像設定
+              image: DecorationImage(
+                image: AssetImage('lib/assets/bg_star.png'),
+                fit: BoxFit.cover,   
+              )
+            ),
+            child: Center(
+              child: GridView.count(
+                shrinkWrap: true, //中央寄せ
+                crossAxisCount: 3,
+                mainAxisSpacing: 28, //縦方向の間隔
+                crossAxisSpacing: 16, //縦方向の間隔
+                padding: const EdgeInsets.only(left:12, right:12),
+                children: _buildGridCards(context),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+//decoration: BoxDecoration ();
