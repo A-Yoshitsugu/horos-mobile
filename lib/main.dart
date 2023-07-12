@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-import 'assets/model/product.dart';
-import 'assets/model/product_repository.dart';
+import 'model/product.dart';
+import 'model/product_repository.dart';
 
 void main() {
   runApp(const MyApp());
