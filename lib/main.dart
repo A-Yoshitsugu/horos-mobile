@@ -50,8 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
         color: const Color.fromRGBO(255, 255, 255, 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
+          side: BorderSide(
+            color: Color(int.parse(product.assetColor)),
+            width: 3.2,
+          ),
         ),
-        // TODO: Adjust card heights (103)
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -64,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top:5),
+                padding: const EdgeInsets.only(top:1),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
