@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../pages/aries.dart';
-import 'model/product.dart';
-import 'model/product_repository.dart';
+import 'zodiac_details/aries.dart';
+import '../model/product.dart';
+import '../model/product_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: ElevatedButton(
           onPressed: () {
-           Navigator.pushNamed(context, '../pages/aries.dart');
+           Navigator.pushNamed(context, 'zodiac_details/aries.dart');
           } , 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
