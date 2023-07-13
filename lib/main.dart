@@ -55,7 +55,47 @@ class _MyHomePageState extends State<MyHomePage> {
             width: 3.2,
           ),
         ),
-        child: Column(
+        child: ElevatedButton(
+          onPressed: () {
+           Navigator.pushNamed(context, '/pages/aries.dart');
+          } , 
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const Padding(padding: EdgeInsets.only(top:6),),
+              AspectRatio(
+                aspectRatio: 2.0 / 1.0,
+                child: Image.asset(
+                  product.assetName,
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.only(top:1),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        product.zodiacJP,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        product.birth,
+                        style: const TextStyle(
+                          fontSize: 8,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        /*child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Padding(padding: EdgeInsets.only(top:6),),
@@ -66,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Expanded(
-              child: Padding(
+              child: Container(
                 padding: const EdgeInsets.only(top:1),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      );
+      */);
     }).toList();
   }
 
