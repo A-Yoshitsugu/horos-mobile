@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../pages/leo.dart';
 import '../pages/aries.dart';
 import 'model/product.dart';
 import 'model/product_repository.dart';

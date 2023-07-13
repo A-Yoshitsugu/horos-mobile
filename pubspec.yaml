@@ -89,7 +89,8 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-  #Image assets
+  #Image and Files assets
   assets:
     - lib/assets/zodiac_signs/
     - lib/assets/bg_star.png
+    - pages/aries.dart
