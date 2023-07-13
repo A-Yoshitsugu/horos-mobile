@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-
+import '../pages/leo.dart';
+import '../pages/aries.dart';
 import 'model/product.dart';
 import 'model/product_repository.dart';
 
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: ElevatedButton(
           onPressed: () {
-           Navigator.pushNamed(context, '/pages/aries.dart');
+           Navigator.pushNamed(context, '../pages/aries.dart');
           } , 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

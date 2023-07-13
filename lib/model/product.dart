@@ -1,7 +1,4 @@
 // Fluttee App Demo Code 転用
-
-import 'package:flutter/material.dart';
-
 enum Category {
   all,
 }
